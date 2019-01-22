@@ -1,0 +1,11 @@
+revisi
+1. admin dan manager di gabung ditambah field baru dengan status
+2. degree buat table baru + tambah table baru ( detail degree)
+3. work experience dipisah dg discription bikin field baru
+4. tambah ( bahasa yang dikuasai, religion,)
+5. pic dan interviewer jadi 1 tugas
+6. 1 company punya byak PIC
+7. application status di jadi hr dan manager1
+
+--------------------------------------
+- user memeberikan jadwal ke HR untuk menjadwalkan interview ke member
