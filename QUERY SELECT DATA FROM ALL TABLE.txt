@@ -1,0 +1,432 @@
+QUERY SELECT DATA FROM ALL TABLE
+
+--ADMIN--
+
+CREATE OR REPLACE PROCEDURE getdataAdmin
+IS
+   cursor e_data is 
+      select id, username, pass 
+      from admin;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID         : ' || e_rec.id);
+      dbms_output.put_line('Username   : ' || e_rec.username);
+      dbms_output.put_line('Pass       : ' || e_rec.pass);
+   end loop;
+end; 
+
+BEGIN 
+   getdataAdmin();
+END
+
+
+--MEMBER--
+
+CREATE OR REPLACE PROCEDURE getdataMember
+IS
+   cursor e_data is 
+      select id, name, phone, email, address, city, pass, status, speciality_id 
+      from member;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID            : ' || e_rec.id);
+      dbms_output.put_line('Name          : ' || e_rec.name);
+      dbms_output.put_line('Phone         : ' || e_rec.phone);
+      dbms_output.put_line('Email         : ' || e_rec.email);
+      dbms_output.put_line('Address       : ' || e_rec.address);
+      dbms_output.put_line('City          : ' || e_rec.city);
+      dbms_output.put_line('Pass          : ' || e_rec.pass);
+      dbms_output.put_line('Status        : ' || e_rec.status);  
+      dbms_output.put_line('Speciality id : ' || e_rec.speciality_id);
+ end loop;
+end; 
+
+BEGIN 
+   getdataMember();
+END
+
+
+--MANAGER--
+
+CREATE OR REPLACE PROCEDURE getdataManager
+IS
+   cursor e_data is 
+      select id, name, phone, email, address, city, pass 
+      from manager;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID            : ' || e_rec.id);
+      dbms_output.put_line('Name          : ' || e_rec.name);
+      dbms_output.put_line('Phone         : ' || e_rec.phone);
+      dbms_output.put_line('Email         : ' || e_rec.email);
+      dbms_output.put_line('Address       : ' || e_rec.address);
+      dbms_output.put_line('City          : ' || e_rec.city);
+      dbms_output.put_line('Pass          : ' || e_rec.pass);
+   end loop;
+end; 
+
+BEGIN 
+   getdataManager();
+END
+
+
+--HR--
+
+CREATE OR REPLACE PROCEDURE getdataHR
+IS
+   cursor e_data is 
+      select id, name, phone, email, address, city, pass 
+      from hr;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID            : ' || e_rec.id);
+      dbms_output.put_line('Name          : ' || e_rec.name);
+      dbms_output.put_line('Phone         : ' || e_rec.phone);
+      dbms_output.put_line('Email         : ' || e_rec.email);
+      dbms_output.put_line('Address       : ' || e_rec.address);
+      dbms_output.put_line('City          : ' || e_rec.city);
+      dbms_output.put_line('Pass          : ' || e_rec.pass);
+   end loop;
+end; 
+
+BEGIN 
+   getdataHR();
+END
+
+
+--USERS--
+
+CREATE OR REPLACE PROCEDURE getdataUsers
+IS
+   cursor e_data is 
+      select id, name, phone, email, address, city, pass, company_id 
+      from users;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID            : ' || e_rec.id);
+      dbms_output.put_line('Name          : ' || e_rec.name);
+      dbms_output.put_line('Phone         : ' || e_rec.phone);
+      dbms_output.put_line('Email         : ' || e_rec.email);
+      dbms_output.put_line('Address       : ' || e_rec.address);
+      dbms_output.put_line('City          : ' || e_rec.city);
+      dbms_output.put_line('Pass          : ' || e_rec.pass);
+      dbms_output.put_line('Company Id    : ' || e_rec.company_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataUsers();
+END
+
+
+--COMPANIES--
+
+CREATE OR REPLACE PROCEDURE getdataCompanies
+IS
+   cursor e_data is 
+      select id, name, phone, email, address, city, fax 
+      from companies;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID            : ' || e_rec.id);
+      dbms_output.put_line('Name          : ' || e_rec.name);
+      dbms_output.put_line('Phone         : ' || e_rec.phone);
+      dbms_output.put_line('Email         : ' || e_rec.email);
+      dbms_output.put_line('Address       : ' || e_rec.address);
+      dbms_output.put_line('City          : ' || e_rec.city);
+      dbms_output.put_line('Fax           : ' || e_rec.fax);
+   end loop;
+end; 
+
+BEGIN 
+   getdataCompanies();
+END
+
+
+
+--SKILLS--
+
+CREATE OR REPLACE PROCEDURE getdataSkills
+IS
+   cursor e_data is 
+      select id, name 
+      from skills;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID         : ' || e_rec.id);
+      dbms_output.put_line('Name       : ' || e_rec.name);
+   end loop;
+end; 
+
+BEGIN 
+   getdataSkills();
+END
+
+
+--DEGREES--
+
+CREATE OR REPLACE PROCEDURE getdataDegrees
+IS
+   cursor e_data is 
+      select id, name 
+      from degrees;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID         : ' || e_rec.id);
+      dbms_output.put_line('Name       : ' || e_rec.name);
+   end loop;
+end; 
+
+BEGIN 
+   getdataDegrees();
+END
+
+
+--CV_DEGREES--
+
+CREATE OR REPLACE PROCEDURE getdataCVDegrees
+IS
+   cursor e_data is 
+      select id, cv_id, degree_id 
+      from cv_degrees;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID          : ' || e_rec.id);
+      dbms_output.put_line('CV Id       : ' || e_rec.cv_id);
+      dbms_output.put_line('Degree Id   : ' || e_rec.degree_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataCVDegrees();
+END
+
+
+--DEGREES_COLLEGES--
+
+CREATE OR REPLACE PROCEDURE getdataDegreesColleges
+IS
+   cursor e_data is 
+      select id, degree_id, college_id 
+      from degrees_colleges;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID          : ' || e_rec.id);
+      dbms_output.put_line('Degree Id   : ' || e_rec.degree_id);
+      dbms_output.put_line('College Id  : ' || e_rec.college_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataDegreesColleges();
+END
+
+
+--CV--
+
+CREATE OR REPLACE PROCEDURE getdataCV
+IS
+   cursor e_data is 
+      select id, gender, born_date, religion, marriage_status, gpa, work_experience, foreign_language, description, photo, member_id 
+      from cv;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID               : ' || e_rec.id);
+      dbms_output.put_line('Gender           : ' || e_rec.gender);
+      dbms_output.put_line('Born Date        : ' || e_rec.born_date);
+      dbms_output.put_line('Religion         : ' || e_rec.religion);
+      dbms_output.put_line('Marriage Status  : ' || e_rec.marriage_status);
+      dbms_output.put_line('GPA              : ' || e_rec.gpa);
+      dbms_output.put_line('Work Experience  : ' || e_rec.work_experience);
+      dbms_output.put_line('Foreign Language : ' || e_rec.foreign_language);  
+      dbms_output.put_line('Description      : ' || e_rec.description);
+      dbms_output.put_line('Photo            : ' || e_rec.photo);
+      dbms_output.put_line('Member Id        : ' || e_rec.member_id);
+ end loop;
+end; 
+
+BEGIN 
+   getdataCV();
+END
+
+
+--VACANCIES--
+
+CREATE OR REPLACE PROCEDURE getdataVacancies
+IS
+   cursor e_data is 
+      select id, gender, min_age, max_age, religion, marriage_status, degree, gpa, work_experience, foreign_language, exp_date, description, status, post_date, company_id, speciality_id 
+      from vacancies;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID               : ' || e_rec.id);
+      dbms_output.put_line('Gender           : ' || e_rec.gender);
+      dbms_output.put_line('Min Age          : ' || e_rec.min_age);
+      dbms_output.put_line('Max Age          : ' || e_rec.max_age);
+      dbms_output.put_line('Religion         : ' || e_rec.religion);
+      dbms_output.put_line('Marriage Status  : ' || e_rec.marriage_status);
+      dbms_output.put_line('Degree           : ' || e_rec.degree);
+      dbms_output.put_line('GPA              : ' || e_rec.gpa);
+      dbms_output.put_line('Work Experience  : ' || e_rec.work_experience);
+      dbms_output.put_line('Foreign Language : ' || e_rec.foreign_language);  
+      dbms_output.put_line('Exp Date         : ' || e_rec.exp_date);
+      dbms_output.put_line('Description      : ' || e_rec.description);
+      dbms_output.put_line('Status           : ' || e_rec.status);
+      dbms_output.put_line('Post Date        : ' || e_rec.post_date);
+      dbms_output.put_line('Company Id       : ' || e_rec.company_id);
+      dbms_output.put_line('Speciality Id    : ' || e_rec.speciality_id);
+ end loop;
+end; 
+
+BEGIN 
+   getdataVacancies();
+END
+
+
+--APPLICATIONS--
+
+CREATE OR REPLACE PROCEDURE getdataApplications
+IS
+   cursor e_data is 
+      select id, status, post_date, cv_id, vacancy_id, hr_id, manager_id 
+      from applications;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID            : ' || e_rec.id);
+      dbms_output.put_line('Status        : ' || e_rec.status);
+      dbms_output.put_line('Post Date     : ' || e_rec.post_date);
+      dbms_output.put_line('CV Id         : ' || e_rec.cv_id);
+      dbms_output.put_line('Vacancy Id    : ' || e_rec.vacancy_id);
+      dbms_output.put_line('HR Id         : ' || e_rec.hr_id);
+      dbms_output.put_line('Manager Id    : ' || e_rec.manager_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataAplications();
+END
+
+
+--CV_SKILLS--
+
+CREATE OR REPLACE PROCEDURE getdataCVSkills
+IS
+   cursor e_data is 
+      select id, cv_id, skill_id 
+      from cv_skills;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID          : ' || e_rec.id);
+      dbms_output.put_line('CV Id       : ' || e_rec.cv_id);
+      dbms_output.put_line('Skill Id    : ' || e_rec.skill_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataSkills();
+END
+
+
+--INTERVIEW_USERS--
+
+CREATE OR REPLACE PROCEDURE getdataInterviewSkills
+IS
+   cursor e_data is 
+      select id, datetime, place, description, post_date, interview_status, application_id 
+      from interview_users;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID               : ' || e_rec.id);
+      dbms_output.put_line('Date             : ' || e_rec.datetime);
+      dbms_output.put_line('Place            : ' || e_rec.place);
+      dbms_output.put_line('Description      : ' || e_rec.description);
+      dbms_output.put_line('Post Date        : ' || e_rec.post_date);
+      dbms_output.put_line('Interview Status : ' || e_rec.interview_status);
+      dbms_output.put_line('Application Id   : ' || e_rec.application_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataInterviewSkills();
+END
+
+
+--USERS_COMMENT--
+
+CREATE OR REPLACE PROCEDURE getdataUserComment
+IS
+   cursor e_data is 
+      select id, name, description, post_date, interview_user_id, user_id 
+      from users_comment;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID                : ' || e_rec.id);
+      dbms_output.put_line('Name              : ' || e_rec.name);
+      dbms_output.put_line('Post Date         : ' || e_rec.post_date);
+      dbms_output.put_line('Interview User Id : ' || e_rec.interview_user_id);
+      dbms_output.put_line('User Id           : ' || e_rec.user_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataUserComment();
+END
+
+
+--INTERVIEW_HR--
+
+CREATE OR REPLACE PROCEDURE getdataInterviewHR
+IS
+   cursor e_data is 
+      select id, datetime, place, description, post_date, interview_status, application_id, hr_id 
+      from interview_hr;
+   e_rec e_data%rowtype;
+BEGIN
+   for e_rec in e_data loop
+      dbms_output.put_line('---------------------------------');
+      dbms_output.put_line('ID               : ' || e_rec.id);
+      dbms_output.put_line('Date             : ' || e_rec.datetime);
+      dbms_output.put_line('Place            : ' || e_rec.place);
+      dbms_output.put_line('Description      : ' || e_rec.description);
+      dbms_output.put_line('Post Date        : ' || e_rec.post_date);
+      dbms_output.put_line('Interview Status : ' || e_rec.interview_status);
+      dbms_output.put_line('Application Id   : ' || e_rec.application_id);
+      dbms_output.put_line('HR Id            : ' || e_rec.hr_id);
+   end loop;
+end; 
+
+BEGIN 
+   getdataInterviewHR();
+END

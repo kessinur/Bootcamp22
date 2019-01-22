@@ -1,0 +1,248 @@
+QUERY PROCEDURE INSERT DATA INTO ALL TABLE 
+
+--ADMIN--
+CREATE OF REPLACE PROCEDURE insertAdmin(INid IN varchar, INusername IN varchar, INpass IN varchar)
+IS
+BEGIN     
+   INSERT INTO admin
+   VALUES(INid, INusername, INpass);
+END; 
+
+BEGIN
+    insertAdmin(' ', ' ', ' ');
+END;
+
+
+--SPECIALITIES--
+CREATE OF REPLACE PROCEDURE insertSpecialities(INid IN varchar, INname IN varchar)
+IS
+BEGIN     
+   INSERT INTO specialities
+   VALUES(INid, INname);
+END; 
+
+BEGIN
+    insertSpecialities(' ', ' ');
+END;
+
+
+--MEMBER--
+CREATE OF REPLACE PROCEDURE insertMember(INid IN varchar, INname IN varchar, INphone IN varchar, INemail IN varchar, INaddress IN varchar, INcity IN varchar, INpass IN varchar, INstatus IN varchar, INspeciality_id)
+IS
+BEGIN     
+   INSERT INTO member
+   VALUES(INid, INname, INphone, INemail, INaddress, INcity, INpass, INstatus, INspeciality_id);
+END; 
+
+BEGIN
+    insertMember(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--MANAGER--
+CREATE OF REPLACE PROCEDURE insertManager(INid IN varchar, INname IN varchar, INphone IN varchar, INemail IN varchar, INaddress IN varchar, INcity IN varchar, INpass IN varchar)
+IS
+BEGIN     
+   INSERT INTO manager
+   VALUES(INid, INname, INphone, INemail, INaddress, INcity, INpass);
+END; 
+
+BEGIN
+    insertManager(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--HR--
+CREATE OF REPLACE PROCEDURE insertHR(INid IN varchar, INname IN varchar, INphone IN varchar, INemail IN varchar, INaddress IN varchar, INcity IN varchar, INpass IN varchar)
+IS
+BEGIN     
+   INSERT INTO hr
+   VALUES(INid, INname, INphone, INemail, INaddress, INcity, INpass);
+END; 
+
+BEGIN
+    insertHR(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--USERS--
+CREATE OF REPLACE PROCEDURE insertUsers(INid IN varchar, INname IN varchar, INphone IN varchar, INemail IN varchar, INaddress IN varchar, INcity IN varchar, INpass IN varchar, INcompany_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO users
+   VALUES(INid, INname, INphone, INemail, INaddress, INcity, INpass, INcompany_id);
+END; 
+
+BEGIN
+    insertUsers(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--COMPANIES--
+CREATE OF REPLACE PROCEDURE insertCompanies(INid IN varchar, INname IN varchar, INphone IN varchar, INemail IN varchar, INaddress IN varchar, INcity IN varchar, INfax IN varchar)
+IS
+BEGIN     
+   INSERT INTO companies
+   VALUES(INid, INname, INphone, INemail, INaddress, INcity, INfax);
+END; 
+
+BEGIN
+    insertCompanies(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--SKILLS--
+CREATE OF REPLACE PROCEDURE insertSkills(INid IN varchar, INname IN varchar)
+IS
+BEGIN     
+   INSERT INTO skills
+   VALUES(INid, INname);
+END; 
+
+BEGIN
+    insertSkills(' ', ' ');
+END;
+
+
+--DEGREES--
+CREATE OF REPLACE PROCEDURE insertDegrees(INid IN varchar, INname IN varchar)
+IS
+BEGIN     
+   INSERT INTO degrees
+   VALUES(INid, INname);
+END; 
+
+BEGIN
+    insertDegrees(' ', ' ');
+END;
+
+
+--COLLEGES--
+CREATE OF REPLACE PROCEDURE insertColleges(INid IN varchar, INname IN varchar, INdescription IN varchar)
+IS
+BEGIN     
+   INSERT INTO colleges
+   VALUES(INid, INname, INdescription);
+END; 
+
+BEGIN
+    insertColleges(' ', ' ', ' ');
+END;
+
+
+--CV_DEGREES--
+CREATE OF REPLACE PROCEDURE insertCVDegrees(INid IN varchar, INcv_id IN varchar, INdegree_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO cv_degrees
+   VALUES(INid, INcv_id, INdegree_id);
+END; 
+
+BEGIN
+    insertCVDegrees(' ', ' ', ' ');
+END;
+
+
+--DEGREES_COLLEGES--
+CREATE OF REPLACE PROCEDURE insertDegreesColleges(INid IN varchar, INdegree_id IN varchar, INcollege_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO degrees_colleges
+   VALUES(INid, INdegree_id, INcollege_id);
+END; 
+
+BEGIN
+    insertDegreesColleges(' ', ' ', ' ');
+END;
+
+
+--CV--
+CREATE OF REPLACE PROCEDURE insertCV(INid IN varchar, INgender IN varchar, INborn_date IN date, INreligion IN varchar, INmarriage_status IN varchar, INgpa IN varchar, INwork_experience IN varchar, INforeign_language IN varchar, INdescription IN varchar, INphoto IN varchar, INmember_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO cv
+   VALUES(INid, INgender, INborn_date, INreligion, INmarriage_status, INgpa, INwork_experience, INforeign_language, INdescription, INphoto, INmember_id);
+END; 
+
+BEGIN
+    insertCV(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--VACANCIES--
+CREATE OF REPLACE PROCEDURE insertVacancies(INid IN varchar, INgender IN varchar, INmin_age IN number, INmax_age IN number, INreligion IN varchar, INmarriage_status IN varchar, INdegree IN varchar, INgpa IN varchar, INwork_experience IN varchar, INforeign_language IN varchar, INexp_date IN date, INdescription IN varchar, INstatus IN varchar, INpost_date IN varchar, INcompany_id IN varchar, INspeciality_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO vacancies
+   VALUES(INid, INgender, INmin_age, INmax_age, INreligion, INmarriage_status, INdegree, INgpa, INwork_experience, INforeign_language, INexp_date, INdescription, INstatus, INpost_date, INcompany_id, INspeciality_id);
+END; 
+
+BEGIN
+    insertVacancies(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--APPLICATIONS--
+CREATE OF REPLACE PROCEDURE insertApplications(INid IN varchar, INstatus IN varchar, INpost_date IN date, INcv_id IN varchar, INvacancy_id IN varchar, INhr_id IN varchar, INmanager_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO applications
+   VALUES(INid, INstatus, INpost_date, INcv_id, INvacancy_id, INhr_id, INmanager_id);
+END; 
+
+BEGIN
+    insertApplications(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--CV_SKILLS--
+CREATE OF REPLACE PROCEDURE insertCVSkills(INid IN varchar, INcv_id IN varchar, INskill_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO cv_skills
+   VALUES(INid, INcv_id, INskill_id);
+END; 
+
+BEGIN
+    insertCVSkills(' ', ' ', ' ');
+END;
+
+
+--INTERVIEW_USERS--
+CREATE OF REPLACE PROCEDURE insertInterviewUsers(INid IN varchar, INdate In date, INplace IN varchar, INdescription IN varchar, INpost_date IN date, INinterview_status IN varchar, INapplication_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO interview_users
+   VALUES(INid, INdate, INplace, INdescription, INpost_date, INinterview_status, INapplication_id);
+END; 
+
+BEGIN
+    insertInterviewUsers (' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--USERS_COMMENT--
+CREATE OF REPLACE PROCEDURE insertUsersComment(INid IN varchar, INname IN varchar, INdescription IN varchar, INpost_date IN date, INinterview_user_id IN varchar, INuser_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO users_comment
+   VALUES(INid, INname, INdescription, INpost_date, INinterview_user_id, INuser_id);
+END; 
+
+BEGIN
+    insertUsersComment (' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--INTERVIEW_HR--
+CREATE OF REPLACE PROCEDURE insertInterviewHR(INid IN varchar, INdate IN date, INplace IN varchar, INdescription IN varchar, INpost_date IN date, INinterview_status IN varchar, INapplication_id IN varchar, INhr_id IN varchar)
+IS
+BEGIN     
+   INSERT INTO interview_hr
+   VALUES(INid, INdate, INplace, INdescription, INpost_date, INinterview_status, INapplication_id, INhr_id);
+END; 
+
+BEGIN
+    insertInterviewHR (' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+

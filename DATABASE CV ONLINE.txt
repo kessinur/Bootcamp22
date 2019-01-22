@@ -10,6 +10,14 @@ CREATE TABLE admin (
    CONSTRAINT admin_pk PRIMARY KEY (id)
 );
 
+--SPECIALITIES--
+CREATE TABLE specialities (
+   id varchar(10) NOT NULL,
+   name varchar(10),
+   
+   CONSTRAINT specialities_pk PRIMARY KEY(id)
+);
+
 --MEMBER--
 CREATE TABLE member (
    id varchar(10) NOT NULL,
@@ -52,8 +60,8 @@ CREATE TABLE hr (
    CONSTRAINT hr_pk PRIMARY KEY (id)
 );
 
---PIC--
-CREATE TABLE pic (
+--USERS--
+CREATE TABLE users (
    id varchar(10) NOT NULL,
    name varchar(25),
    phone varchar(12),
@@ -63,17 +71,10 @@ CREATE TABLE pic (
    pass varchar(10) NOT NULL,
    company_id varchar(10) NOT NULL,
 
-   CONSTRAINT pic_pk PRIMARY KEY(id),
-   CONSTRAINT fk1_pic FOREIGN KEY(company_id) REFERENCES companies(id)
+   CONSTRAINT users_pk PRIMARY KEY(id),
+   CONSTRAINT fk1_users FOREIGN KEY(company_id) REFERENCES companies(id)
 );
 
---SPECIALITIES--
-CREATE TABLE specialities (
-   id varchar(10) NOT NULL,
-   name varchar(10),
-   
-   CONSTRAINT specialities_pk PRIMARY KEY(id)
-);
 
 --COMPANIES--
 CREATE TABLE companies (
@@ -96,20 +97,61 @@ CREATE TABLE skills (
    CONSTRAINT skills_pk PRIMARY KEY (id)
 );
 
+--DEGREES--
+CREATE TABLE degrees (
+   id varchar(10) NOT NULL,
+   name varchar(30),
+   
+   CONSTRAINT degrees_pk PRIMARY KEY (id)
+);
+
+--COLLEGES--
+CREATE TABLE colleges (
+   id varchar(10) NOT NULL,
+   name varchar(30),
+   description varchar(100),
+
+   CONSTRAINT colleges_pk PRIMARY KEY (id)
+);
+
+--CV_DEGREES--
+CREATE TABLE cv_degrees (
+   id varchar(10) NOT NULL,
+   cv_id varchar(10) NOT NULL,
+   degree_id varchar(10) NOT NULL,
+   
+   CONSTRAINT cv_degrees_pk PRIMARY KEY (id),
+   CONSTRAINT fk1_cv_degrees FOREIGN KEY(cv_id) REFERENCES cv(id),
+   CONSTRAINT fk2_cv_degrees FOREIGN KEY(degree_id) REFERENCES degrees(id)
+);
+
+--DEGREES_COLLEGES--
+CREATE TABLE degrees_colleges (
+   id varchar(10) NOT NULL,
+   degree_id varchar(10) NOT NULL,
+   college_id varchar(10) NOT NULL,
+   
+   CONSTRAINT degrees_colleges_pk PRIMARY KEY (id),
+   CONSTRAINT fk1_degrees_colleges FOREIGN KEY(degree_id) REFERENCES degrees(id),
+   CONSTRAINT fk2_degrees_colleges FOREIGN KEY(college_id) REFERENCES colleges(id)
+);
+
 --CV--
 CREATE TABLE  cv (
    id varchar(10) NOT NULL,
    gender varchar(1),
    born_date date,
+   religion varchar(10),
    marriage_status varchar(10),
-   degree varchar(25),
    gpa varchar(5),
+   work_experience varchar(100),
+   foreign_language varchar(50),
    description varchar(100),
    photo varchar(25),
    member_id varchar(10) NOT NULL,
 
    CONSTRAINT cv_pk PRIMARY KEY(id),
-   CONSTRAINT fk1_cv foreign key(member_id) REFERENCES member(id)
+   CONSTRAINT fk1_cv FOREIGN KEY(member_id) REFERENCES member(id)
 );
 
 --VACANCIES--
@@ -118,9 +160,12 @@ CREATE TABLE vacancies (
    gender varchar(1),
    min_age number(3),
    max_age number(3),
+   religion varchar(10),
    marriage_status varchar(10),
    degree varchar(25),
    gpa varchar(5),
+   work_experience varchar(100),
+   foreign_language varchar(50),
    exp_date date,
    description varchar(300),
    status varchar(10),
@@ -140,10 +185,14 @@ CREATE TABLE applications (
    post_date date,
    cv_id varchar(10) NOT NULL,
    vacancy_id varchar(10) NOT NULL,
+   hr_id varchar(10) NOT NULL,
+   manager_id varchar(10) NOT NULL,
    
    CONSTRAINT applicatons_pk PRIMARY KEY(id),
-   CONSTRAINT fk1_applivations FOREIGN KEY(cv_id) REFERENCES cv(id),
-   CONSTRAINT fk2_applications FOREIGN KEY(vacancy_id) REFERENCES vacancies(id)
+   CONSTRAINT fk1_applications FOREIGN KEY(cv_id) REFERENCES cv(id),
+   CONSTRAINT fk2_applications FOREIGN KEY(vacancy_id) REFERENCES vacancies(id),
+   CONSTRAINT fk2_cv FOREIGN KEY(hr_id) REFERENCES hr(id),
+   CONSTRAINT fk3_cv FOREIGN KEY(manager_id) REFERENCES manager(id)
 ); 
 
 --CV SKILLS--
@@ -157,39 +206,38 @@ CREATE TABLE cv_skills (
    CONSTRAINT fk2_cv_skills FOREIGN KEY(skill_id) REFERENCES skills(id)
 );
 
---INTERVIEW_PIC--
-CREATE TABLE interview_pic (
+--INTERVIEW_USERS--
+CREATE TABLE interview_users (
    id varchar(10) NOT NULL,
-   date date,
+   datetime date,
    place varchar(25),
-   interviewer varchar(50),
    description varchar(100),
    post_date date,
    interview_status varchar(25) NOT NULL,
    application_id varchar(10) NOT NULL,
    
-   CONSTRAINT interview_pic_pk PRIMARY KEY(id),
-   CONSTRAINT fk1_interview_pic FOREIGN KEY (application_id) REFERENCES applications(id)
+   CONSTRAINT interview_users_pk PRIMARY KEY(id),
+   CONSTRAINT fk1_interview_users FOREIGN KEY (application_id) REFERENCES applications(id)
 );
 
---PIC_COMMENT--
-CREATE TABLE pic_comment (
+--USERS_COMMENT--
+CREATE TABLE users_comment (
    id varchar(10) NOT NULL,
    name varchar(25),
    description varchar(100),
    post_date date,
-   interview_pic_id varchar(10) NOT NULL,
-   pic_id varchar(10) NOT NULL,
+   interview_user_id varchar(10) NOT NULL,
+   user_id varchar(10) NOT NULL,
 
-   CONSTRAINT pic_comment_pk PRIMARY KEY(id),
-   CONSTRAINT fk1_pic_comment FOREIGN KEY(interview_pic_id) REFERENCES interview_pic(id),
-   CONSTRAINT fk2_pic_comment FOREIGN KEY(pic_id) REFERENCES pic(pic_id)
+   CONSTRAINT users_comment_pk PRIMARY KEY(id),
+   CONSTRAINT fk1_users_comment FOREIGN KEY(interview_user_id) REFERENCES interview_users(id),
+   CONSTRAINT fk2_users_comment FOREIGN KEY(user_id) REFERENCES users(id)
 );
 
 --INTERVIEW_HR--
 CREATE TABLE interview_hr (
    id varchar(10) NOT NULL,
-   date date,
+   datetime date,
    place varchar(25),
    description varchar(100),
    post_date date,

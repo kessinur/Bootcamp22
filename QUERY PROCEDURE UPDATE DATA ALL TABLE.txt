@@ -1,0 +1,266 @@
+QUERY PROCEDURE UPDATE DATA ALL TABLE
+
+--ADMIN--
+CREATE OF REPLACE PROCEDURE updateAdmin(UPid IN varchar, UPusername IN varchar, UPpass IN varchar)
+IS
+BEGIN     
+   UPDATE admin
+   SET username = UPusername, pass = UPpass
+   WHERE id = UPid,
+END; 
+
+BEGIN
+    updateAdmin(' ', ' ', ' ');
+END;
+
+
+--SPECIALITIES--
+CREATE OF REPLACE PROCEDURE updateSpecialities(UPid IN varchar, UPname IN varchar)
+IS
+BEGIN     
+   UPDATE specialities
+   SET name = UPname
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateSpecialities(' ', ' ');
+END;
+
+
+--MEMBER--
+CREATE OF REPLACE PROCEDURE updateMember(UPid IN varchar, UPname IN varchar, UPphone IN varchar, UPemail IN varchar, UPaddress IN varchar, UPcity IN varchar, UPpass IN varchar, UPstatus IN varchar, UPspeciality_id)
+IS
+BEGIN     
+   UPDATE member
+   SET name = UPname, phone = UPphone, email = UPemail, address = UPaddress, city = UPcity, pass = UPpass, status = UPstatus, speciality_id = UPspeciality_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateMember(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--MANAGER--
+CREATE OF REPLACE PROCEDURE updateManager(UPid IN varchar, UPname IN varchar, UPphone IN varchar, UPemail IN varchar, UPaddress IN varchar, UPcity IN varchar, UPpass IN varchar)
+IS
+BEGIN     
+   UPDATE manager
+   SET name = UPname, phone = UPphone, email = UPemail, address = UPaddress, city = UPcity, pass = UPpass
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateManager(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--HR--
+CREATE OF REPLACE PROCEDURE updateHR(UPid IN varchar, UPname IN varchar, UPphone IN varchar, UPemail IN varchar, UPaddress IN varchar, UPcity IN varchar, UPpass IN varchar)
+IS
+BEGIN     
+   UPDATE hr
+   SET name = UPname, phone = UPphone, email = UPemail, address = UP address, city = UPcity, pass = UPpass
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateHR(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--USERS--
+CREATE OF REPLACE PROCEDURE updateUsers(UPid IN varchar, UPname IN varchar, UPphone IN varchar, UPemail IN varchar, UPaddress IN varchar, UPcity IN varchar, UPpass IN varchar, UPcompany_id IN varchar)
+IS
+BEGIN     
+   UPDATE users
+   SET name = UPname, phone = UPphone, email = UPemail, address = UPaddress, city = UPcity, pass = UPpass, company_id = UPcompany_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateUsers(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--COMPANIES--
+CREATE OF REPLACE PROCEDURE updateCompanies(UPid IN varchar, UPname IN varchar, UPphone IN varchar, UPemail IN varchar, UPaddress IN varchar, UPcity IN varchar, UPfax IN varchar)
+IS
+BEGIN     
+   UPDATE companies
+   SET name = UPname, phone = UPphone, email = UPemail, address = UPaddress, city = UPcity, fax = UPfax
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateCompanies(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--SKILLS--
+CREATE OF REPLACE PROCEDURE updateSkills(UPid IN varchar, UPname IN varchar)
+IS
+BEGIN     
+   UPDATE skills
+   SET name = UPname
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateSkills(' ', ' ');
+END;
+
+
+--DEGREES--
+CREATE OF REPLACE PROCEDURE updateDegrees(UPid IN varchar, UPname IN varchar)
+IS
+BEGIN     
+   UPDATE degrees
+   SET name = UPname
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateDegrees(' ', ' ');
+END;
+
+
+--COLLEGES--
+CREATE OF REPLACE PROCEDURE updateColleges(UPid IN varchar, UPname IN varchar, UPdescription IN varchar)
+IS
+BEGIN     
+   UPDATE colleges
+   SET name = UPname, description = UP description
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateColleges(' ', ' ', ' ');
+END;
+
+
+--CV_DEGREES--
+CREATE OF REPLACE PROCEDURE updateCVDegrees(UPid IN varchar, UPcv_id IN varchar, UPdegree_id IN varchar)
+IS
+BEGIN     
+   UPDATE cv_degrees
+   SET cv_id = UPcv_id, degree_id = UPdegree_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateCVDegrees(' ', ' ', ' ');
+END;
+
+
+--DEGREES_COLLEGES--
+CREATE OF REPLACE PROCEDURE updateDegreesColleges(UPid IN varchar, UPdegree_id IN varchar, UPcollege_id IN varchar)
+IS
+BEGIN     
+   UPDATE degrees_colleges
+   SET degree_id = UPdegree_id, college_id = UPcollege_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateDegreesColleges(' ', ' ', ' ');
+END;
+
+
+--CV--
+CREATE OF REPLACE PROCEDURE updateCV(UPid IN varchar, UPgender IN varchar, UPborn_date IN date, UPreligion IN varchar, UPmarriage_status IN varchar, UPgpa IN varchar, UPwork_experience IN varchar, UPforeign_language IN varchar, UPdescription IN varchar, UPphoto IN varchar, UPmember_id IN varchar)
+IS
+BEGIN     
+   UPDATE cv
+   SET gender = UPgender, born_date = UPborn_date, religion = UPreligion, marriage_status = UPmarriage_status, gpa = UPgpa, work_experience = UPwork_experience, foreign_language = UPforeign_language, description = UPdescription, photo = UPphoto, member_id = UPmembver_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateCV(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--VACANCIES--
+CREATE OF REPLACE PROCEDURE updateVacancies(UPid IN varchar, UPgender IN varchar, UPmin_age IN number, UPmax_age IN number, UPreligion IN varchar, UPmarriage_status IN varchar, UPdegree IN varchar, UPgpa IN varchar, UPwork_experience IN varchar, UPforeign_language IN varchar, UPexp_date IN date, UPdescription IN varchar, UPstatus IN varchar, UPpost_date IN varchar, UPcompany_id IN varchar, UPspeciality_id IN varchar)
+IS
+BEGIN     
+   UPDATE vacancies
+   SET gender = UPgender, min_age = UPmin_age, max_age = UPmax_age, religion = UPreligion, marriage_status = UPmarriage_status, degree = UPdegree, gpa = UPgpa, work_experience = UPwork_experience, foreign_language = UPforeign_language, exp_date = UPexp_date, description = UPdescription, status = UPstatus, post_date = UPpost_date, company_id = UPcompany_id, speciality_id = UPspeciality_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateVacancies(' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--APPLICATIONS--
+CREATE OF REPLACE PROCEDURE updateApplications(UPid IN varchar, UPstatus IN varchar, UPpost_date IN date, UPcv_id IN varchar, UPvacancy_id IN varchar, UPhr_id IN varchar, UPmanager_id IN varchar)
+IS
+BEGIN     
+   INSERT applications
+   SET status = UPstatus, post_date = UPpost_date, cv_id = UPcv_id, vacancy_id = UPvacancy_id, hr_id = UPhr_id, manager_id = UPmanager_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateApplications(' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--CV_SKILLS--
+CREATE OF REPLACE PROCEDURE updateCVSkills(UPid IN varchar, UPcv_id IN varchar, UPskill_id IN varchar)
+IS
+BEGIN     
+   UPDATE cv_skills
+   SET cv_id = UPcv_id, skill_id = UPskill_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateCVSkills(' ', ' ', ' ');
+END;
+
+
+--INTERVIEW_USERS--
+CREATE OF REPLACE PROCEDURE updateInterviewUsers(UPid IN varchar, UPdatetime In date, UPplace IN varchar, UPdescription IN varchar, UPpost_date IN date, UPinterview_status IN varchar, INapplication_id IN varchar)
+IS
+BEGIN     
+   UPDATE interview_users
+   SET datetime = UPdate, place = UPplace, description = UPdescription, post_date = UPpost_date, interview_status = UPinterview_status, application_id = UPapplication_status
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateInterviewUsers (' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--USERS_COMMENT--
+CREATE OF REPLACE PROCEDURE updateUsersComment(UPid IN varchar, UPname IN varchar, UPdescription IN varchar, UPpost_date IN date, UPinterview_user_id IN varchar, UPuser_id IN varchar)
+IS
+BEGIN     
+   UPDATE users_comment
+   SET name = UPname, description = UPdescription, post_date = UPpost_date, interview_user_id = UPinterview_user_id, user_id = UPuser_id
+   WHERE id = UPid;
+END; 
+
+BEGIN
+    updateUsersComment (' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;
+
+
+--INTERVIEW_HR--
+CREATE OF REPLACE PROCEDURE updateInterviewHR(UPid IN varchar, UPdatetime IN date, UPplace IN varchar, UPdescription IN varchar, UPpost_date IN date, UPinterview_status IN varchar, UPapplication_id IN varchar, UPhr_id IN varchar)
+IS
+BEGIN     
+   UPDATE interview_hr
+   SET datetime = UPdate, place = UPplace, description = UPdescription, post_date = UPpost_date, interview_status = UPinterview_status, application_id = UPapplication_id, hr_id = UPhr_id
+   SET id = UPid;
+END; 
+
+BEGIN
+    updateInterviewHR (' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ');
+END;

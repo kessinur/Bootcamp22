@@ -1,0 +1,266 @@
+QUERY PROCEDURE DELETE DATA ALL TABLE
+
+--ADMIN--
+CREATE OF REPLACE PROCEDURE deleteAdmin(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM admin
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteAdmin(' ');
+END;
+
+
+--SPECIALITIES--
+CREATE OF REPLACE PROCEDURE deleteSpecialities(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM specialities
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteSpecialities(' ');
+END;
+
+
+--MEMBER--
+CREATE OF REPLACE PROCEDURE deleteMember(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM member
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteMember(' ');
+END;
+
+
+--MANAGER--
+CREATE OF REPLACE PROCEDURE deleteManager(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM manager
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteManager(' ');
+END;
+
+
+--HR--
+CREATE OF REPLACE PROCEDURE deleteHR(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM hr
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteHR(' ');
+END;
+
+
+--USERS--
+CREATE OF REPLACE PROCEDURE deleteUsers(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM users
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteUsers(' ');
+END;
+
+
+--COMPANIES--
+CREATE OF REPLACE PROCEDURE deleteCompanies(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM companies
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteCompanies(' ');
+END;
+
+
+--SKILLS--
+CREATE OF REPLACE PROCEDURE deleteSkills(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM skills
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteSkills(' ');
+END;
+
+
+--DEGREES--
+CREATE OF REPLACE PROCEDURE deleteDegrees(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM degrees
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteDegrees(' ');
+END;
+
+
+--COLLEGES--
+CREATE OF REPLACE PROCEDURE deleteColleges(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM colleges
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteColleges(' ');
+END;
+
+
+--CV_DEGREES--
+CREATE OF REPLACE PROCEDURE deleteCVDegrees(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM cv_degrees
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteCVDegrees(' ');
+END;
+
+
+--DEGREES_COLLEGES--
+CREATE OF REPLACE PROCEDURE deleteDegreesColleges(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM degress_colleges
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteDegreesColleges(' ');
+END;
+
+
+--CV--
+CREATE OF REPLACE PROCEDURE deleteCV(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM cv
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteCV(' ');
+END;
+
+
+--VACANCIES--
+CREATE OF REPLACE PROCEDURE deleteVacancies(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM vacancies
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteVacancies(' ');
+END;
+
+
+--APPLICATIONS--
+CREATE OF REPLACE PROCEDURE deleteApplications(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM applications
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteApplications(' ');
+END;
+
+
+--CV_SKILLS--
+CREATE OF REPLACE PROCEDURE deleteCVSkills(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM cv_skills
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteCVSkills(' ');
+END;
+
+
+--INTERVIEW_USERS--
+CREATE OF REPLACE PROCEDURE deleteInterviewUsers(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM interview_users
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteInterviewUsers(' ');
+END;
+
+
+--USERS_COMMENT--
+CREATE OF REPLACE PROCEDURE deleteUsersComment(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM users_comment
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteUsersComment(' ');
+END;
+
+
+--INTERVIEW_HR--
+CREATE OF REPLACE PROCEDURE deleteInterviewHR(DEid IN varchar)
+IS
+BEGIN     
+   DELETE 
+   FROM interview_hr
+   WHERE id = DEid,
+END; 
+
+BEGIN
+    deleteInterviewHR(' ');
+END;
